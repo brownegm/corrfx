@@ -1,0 +1,15 @@
+Package: corrfx
+Type: Package
+Title: Corrfx is used to prepare and compute correlations on datasets. 
+Version: 0.1.0
+Author: Megan Bartlett, Marvin Browne, Joseph Zailaa
+Maintainer: Marvin Browne <brownegm@gmail.com>
+Description: Functions in this package initialize species specific dataframes and saves them to the working directory, computes correlation coefficients and significances(p-value), and tidies the matrix outputs. 
+License: `use_gpl3_license()`
+Encoding: UTF-8
+LazyData: true
+Depends: here,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1

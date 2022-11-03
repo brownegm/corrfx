@@ -1,0 +1,7 @@
+exportPattern("^[[:alpha:]]+")
+
+importFrom("stats", "cor.test")
+
+importFrom("utils", "write.csv")
+
+import("here")
