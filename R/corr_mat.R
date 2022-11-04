@@ -1,8 +1,25 @@
+
+
+
+
 ##Function: corr_mat##
 ##Version: 1.0
 ##Function used to compute correlation matrix
 ##input: dataframe containing data; check that the data has enough non-NA values as well as no negative values.
 ##output: the function outputs a csv correlation matrix and a csv containing the p values associated with the correlation coefficients
+#' Title
+#'
+#' @param dat
+#' @param raw
+#' @param rank
+#' @param log
+#' @param file1
+#' @param file2
+#'
+#' @return
+#' @export
+#'
+#' @examples
 corr_mat<-function(dat=dat, raw=F, rank=F, log=F, file1='correlation matrix file name',file2='p value file name'){
 
   n<-dim(dat)[2]                                  # number of variables/columns
