@@ -2,10 +2,36 @@
 % Please edit documentation in R/initfile.R
 \name{initfile}
 \alias{initfile}
-\title{spcode','individual'.}
+\title{init file: function used to create subsets of larger dataset and write files for each species for raw, log, and rank transformations}
 \usage{
-initfile(spnames = NA, dat = NA, raw = F, log = F, rank = F, path_folder)
+initfile(
+  spnames = NA,
+  dat = NA,
+  spcode = "string",
+  raw = F,
+  log = F,
+  rank = F,
+  path_folder
+)
+}
+\arguments{
+\item{spnames}{species names}
+
+\item{dat}{a dataframe to be split. This dataframe should have the species code as "spcode"}
+
+\item{spcode}{name of column with species codes in it.}
+
+\item{raw}{true/false binary indicating type of transformation}
+
+\item{log}{true/false binary indicating type of transformation}
+
+\item{rank}{true/false binary indicating type of transformation}
+
+\item{path_folder}{folder for output to be saved}
+}
+\value{
+returns a species specific subset of the larger dataframe
 }
 \description{
-spcode','individual'.
+init file: function used to create subsets of larger dataset and write files for each species for raw, log, and rank transformations
 }

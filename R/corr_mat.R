@@ -7,19 +7,22 @@
 ##Function used to compute correlation matrix
 ##input: dataframe containing data; check that the data has enough non-NA values as well as no negative values.
 ##output: the function outputs a csv correlation matrix and a csv containing the p values associated with the correlation coefficients
-#' Title
+
+#' Function used to compute correlation matrix
 #'
-#' @param dat
-#' @param raw
-#' @param rank
-#' @param log
-#' @param file1
-#' @param file2
+#' @param dat a dataframe used to test correlations
+#' @param raw true/false binary indicating type of transformation
+#' @param rank true/false binary indicating type of transformation
+#' @param log true/false binary indicating type of transformation
+#' @param file1 output file name for r values
+#' @param file2 output file name for p values
 #'
-#' @return
+#' @return returns two csv files one with the r values and one with p values
 #' @export
 #'
-#' @examples
+#' @importFrom stats cor.test
+#' @importFrom utils write.csv
+
 corr_mat<-function(dat=dat, raw=F, rank=F, log=F, file1='correlation matrix file name',file2='p value file name'){
 
   n<-dim(dat)[2]                                  # number of variables/columns
@@ -27,7 +30,6 @@ corr_mat<-function(dat=dat, raw=F, rank=F, log=F, file1='correlation matrix file
   cor.matrix <- matrix(nrow=n, ncol=n)            # create empty matrices
   t.cor <- matrix(nrow=n, ncol=n)
   p.cor <- matrix(nrow=n, ncol=n)
-  cor.table<-data.frame("var1", "var2", "cor", "p")
 
   for (i in 1:n) {                                # for each column of data = x
 

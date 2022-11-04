@@ -1,8 +1,23 @@
 
 ##Function:corr_adj##
-##Function used to update "p value files" created by corr_mat function to only have
+##Function used to update "p value files" created with corr matrices to only have
 ##stars or ns based on the significance of the correlation.
 
+#' corr_adj: formats p value files created with corr matrices
+#'
+#' @param corData dataframe of correlation coefficients in the form of a matrix
+#' @param pData dataframe of p values associated with corData r values
+#' @param filename string containing name of output file
+#'
+#' @return csv file with correlation and p values concatenated
+#'
+#' @export
+#'
+#' @importFrom stats cor.test
+#' @importFrom utils write.csv
+#' @import here
+#'
+#'
 corr_adj<-function(corData, pData, filename='what is wrong'){ #raw=T, log=F, rank=F,){
 
   nn = dim(corData)[2]

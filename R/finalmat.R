@@ -2,6 +2,20 @@
 ### Create corr matrix with the p values and correlation coefficients together
 ### This function combines the values from the raw, log, and rank data in that
 ### order
+#' finalmat:Create corr matrix with the p values and correlation coefficients together
+#'
+#' @param dat1 dataframe containing combined correlation coeficients and p values as stars
+#' @param dat2 dataframe containing combined correlation coeficients and p values as stars
+#' @param dat3 dataframe containing combined correlation coeficients and p values as stars
+#' @param filename string containing the name for the output final file
+#'
+#' @return csv file with combine raw, log and rank correlation coef. and p value as stars
+#' @export
+#'
+#' @importFrom utils write.csv
+#'
+#'
+
 finalmat<-function(dat1,#raw data
                    dat2,#log data
                    dat3=NA,#rank data
