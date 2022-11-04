@@ -10,6 +10,6 @@ Description: Functions in this package initialize species specific dataframes an
 License: `use_gpl3_license()`
 Encoding: UTF-8
 LazyData: true
-Depends: here
+Depends: R (>= 4.2.0), here
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
