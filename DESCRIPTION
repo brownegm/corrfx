@@ -7,7 +7,9 @@ Maintainer: Marvin Browne <brownegm@gmail.com>
 Description: Functions in this package initialize species specific dataframes and 
     saves them to the working directory, computes correlation coefficients and significances(p-value),
     and tidies the matrix outputs. 
-License: `use_gpl3_license()`
+URL: https://www.github.com/brownegm/corrfx
+BugReports: https://www.github.com/brownegm/corrfx/issues
+License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 4.2.0), here
