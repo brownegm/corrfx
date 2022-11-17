@@ -14,7 +14,7 @@ corr_mat(
 )
 }
 \arguments{
-\item{dat}{a dataframe used to test correlations}
+\item{dat}{a data frame used to test correlations}
 
 \item{raw}{true/false binary indicating type of transformation}
 
