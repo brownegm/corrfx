@@ -10,7 +10,7 @@
 #' @param file2 p value file name
 #'
 #' @return Returns a correlation matrix partialing out the selected variable k
-#' @export
+#' @export p_corr_mat
 #'
 #'@importFrom generalCorr parcor_ijk
 #'@importFrom utils write.csv
