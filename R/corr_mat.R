@@ -1,7 +1,4 @@
 
-
-
-
 ##Function: corr_mat##
 ##Version: 1.0
 ##Function used to compute correlation matrix
@@ -10,7 +7,7 @@
 
 #' Function used to compute correlation matrix
 #'
-#' @param dat a dataframe used to test correlations
+#' @param dat a data frame used to test correlations
 #' @param raw true/false binary indicating type of transformation
 #' @param rank true/false binary indicating type of transformation
 #' @param log true/false binary indicating type of transformation

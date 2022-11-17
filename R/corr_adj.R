@@ -18,7 +18,7 @@
 #' @import here
 #'
 #'
-corr_adj<-function(corData, pData, filename='what is wrong'){ #raw=T, log=F, rank=F,){
+corr_adj<-function(corData, pData, filename='what is wrong'){
 
   nn = dim(corData)[2]
   Star = corData
