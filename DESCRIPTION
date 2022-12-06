@@ -12,6 +12,7 @@ BugReports: https://www.github.com/brownegm/corrfx/issues
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
-Depends: R (>= 4.2.0), here, generalCorr
+Depends: R (>= 4.0.0)
+Imports: here, generalCorr
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
