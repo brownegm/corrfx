@@ -1,4 +1,3 @@
-
 ##Function:corr_adj##
 ##Function used to update "p value files" created with corr matrices to only have
 ##stars or ns based on the significance of the correlation.

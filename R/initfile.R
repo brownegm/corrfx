@@ -1,4 +1,3 @@
-
 ##Function: initfile##
 ##Function used to create subsets of larger dataset and write files for each species based on
 ##required file types specified.

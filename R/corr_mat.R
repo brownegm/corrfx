@@ -1,4 +1,3 @@
-
 ##Function: corr_mat##
 ##Version: 1.0
 ##Function used to compute correlation matrix
