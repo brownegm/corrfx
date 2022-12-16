@@ -2,7 +2,7 @@ Package: corrfx
 Type: Package
 Title: Prepare, compute and clean correlations matrices of datasets
 Version: 0.1.0
-Author: Megan Bartlett, Marvin Browne, Joseph Zailaa
+Author: Megan Bartlett, Marvin Browne[aut,cre], Camila Medeiros, Joseph Zailaa
 Maintainer: Marvin Browne <brownegm@gmail.com>
 Description: Functions in this package initialize species specific dataframes and 
     saves them to the working directory, computes correlation coefficients and significances(p-value),
