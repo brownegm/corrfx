@@ -9,6 +9,7 @@ corr_mat(
   raw = F,
   rank = F,
   log = F,
+  outputCSV = F,
   file1 = "correlation matrix file name",
   file2 = "p value file name"
 )
@@ -22,6 +23,8 @@ corr_mat(
 
 \item{log}{true/false binary indicating type of transformation}
 
+\item{outputCSV}{Should R output csv files. Default is False}
+
 \item{file1}{output file name for r values}
 
 \item{file2}{output file name for p values}
@@ -31,4 +34,7 @@ returns two csv files one with the r values and one with p values
 }
 \description{
 Function used to compute correlation matrix
+}
+\details{
+For more information on the use of the set of functions within the package see the help vignette: \code{vignette("Overview_on_usage", package = "corrfx")}
 }

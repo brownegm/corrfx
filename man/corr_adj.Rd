@@ -4,12 +4,14 @@
 \alias{corr_adj}
 \title{corr_adj: formats p value files created with corr matrices}
 \usage{
-corr_adj(corData, pData, filename = "what is wrong")
+corr_adj(corData, pData, outputCSV = F, filename = "what is wrong")
 }
 \arguments{
 \item{corData}{dataframe of correlation coefficients in the form of a matrix}
 
 \item{pData}{dataframe of p values associated with corData r values}
+
+\item{outputCSV}{Should R output csv files. Default is False}
 
 \item{filename}{string containing name of output file}
 }

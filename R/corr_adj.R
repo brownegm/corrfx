@@ -7,6 +7,7 @@
 #' @param corData dataframe of correlation coefficients in the form of a matrix
 #' @param pData dataframe of p values associated with corData r values
 #' @param filename string containing name of output file
+#' @param outputCSV Should R output csv files. Default is False
 #'
 #' @return csv file with correlation and p values concatenated
 #'
@@ -17,7 +18,7 @@
 #' @import here
 #'
 #'
-corr_adj<-function(corData, pData, filename='what is wrong'){
+corr_adj<-function(corData, pData, outputCSV=F, filename='what is wrong'){
 
   nn = dim(corData)[2]
   Star = corData
@@ -31,9 +32,9 @@ corr_adj<-function(corData, pData, filename='what is wrong'){
                                      labels = c('***', '**', '*', 'ns')))
       DataStar[ii,jj] = paste(lapply(corData[ii,jj], round, 2), Star[ii,jj], sep = "")
     }}
-
+if(outputCSV==T){
   write.csv(DataStar, file=here(filename), na = "")
-
+}
   return(DataStar)
 }
 

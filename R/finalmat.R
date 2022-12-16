@@ -8,7 +8,7 @@
 #' @param dat2 data frame containing combined correlation coeficients and p values as stars
 #' @param dat3 data frame containing combined correlation coeficients and p values as stars
 #' @param filename string containing the name for the output final file, including ".csv" at the end
-#'
+#' @param outputCSV Should R output csv files. Default is False
 #' @return csv file with combine raw, log and rank correlation coef. and p value as stars
 #' @export
 #'
@@ -19,6 +19,7 @@
 finalmat<-function(dat1,#raw data
                    dat2,#log data
                    dat3=NA,#rank data
+                   outputCSV=F,
                    filename="insertfilename"){
 
   FinalCorrMatrix = dat1
@@ -36,8 +37,9 @@ finalmat<-function(dat1,#raw data
       }
     }
   }
-
+if(outputCSV==T){
   write.csv(FinalCorrMatrix, file=filename)
+}
 
   return(FinalCorrMatrix)
 

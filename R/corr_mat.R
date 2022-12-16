@@ -13,6 +13,7 @@
 #' @param log true/false binary indicating type of transformation
 #' @param file1 output file name for r values
 #' @param file2 output file name for p values
+#' @param outputCSV Should R output csv files. Default is False
 #'
 #' @return returns two csv files one with the r values and one with p values
 #' @export
@@ -20,7 +21,7 @@
 #' @importFrom stats cor.test
 #' @importFrom utils write.csv
 
-corr_mat<-function(dat=dat, raw=F, rank=F, log=F, file1='correlation matrix file name',file2='p value file name'){
+corr_mat<-function(dat=dat, raw=F, rank=F, log=F,outputCSV=F, file1='correlation matrix file name',file2='p value file name'){
 
   n<-dim(dat)[2]                                  # number of variables/columns
 
@@ -54,7 +55,7 @@ corr_mat<-function(dat=dat, raw=F, rank=F, log=F, file1='correlation matrix file
   names(cor.df)<-names(dat); row.names(cor.df)<-names(dat)  # name columns and rows
   names(p.df)<-names(dat); row.names(p.df)<-names(dat)      # name columns and rows
 
-
+if(outputCSV==T){
   #create outputs
   if(raw == T){
 
@@ -71,6 +72,6 @@ corr_mat<-function(dat=dat, raw=F, rank=F, log=F, file1='correlation matrix file
     write.csv(cor.df, file=file1)# write output to text files
     write.csv(p.df, file=file2)
   }
-
+}
   return(list(cor.df, p.df))
 }
