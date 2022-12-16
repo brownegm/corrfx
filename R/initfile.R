@@ -4,44 +4,40 @@
 ##Used to create versions of initial dataset that are raw, log, or rank transformed.
 #' init file: function used to create subsets of larger dataset and write files for each species for raw, log, and rank transformations
 #'
-#' @param spnames species names
-#' @param dat a dataframe to be split. This dataframe should have the species code as "spcode"
-#' @param raw true/false binary indicating type of transformation
-#' @param log true/false binary indicating type of transformation
-#' @param rank true/false binary indicating type of transformation
-#' @param path_folder folder for output to be saved
-#' @param spcode name of column with species codes in it.
-#'
-#' @return returns a species specific subset of the larger dataframe
+#' @param data a dataframe to be split. This dataframe should have the species code as "spcode"
+#' @param grpCol A string. name of column with species codes in it.
+#' @param dataType A string. Indicate what data type label for output csv files
+#' @param pathFolder A string passed to here function indicate folder for file placement
+#' @param returnCSV TRUE or FALSE. Do you wish to have subsets output as csv files? Default is TRUE
+
+#' @return Returns a list of group specific subsets of the larger data frame and .csv files(optional)
 #' @export
 #'
 #' @importFrom utils write.csv
+#' @importFrom here here
+#' @importFrom dplyr filter
 #'
 
-initfile<-function(spnames=NA, #species names
-                   dat=NA, #dataframe
-                   spcode="string",
-                   raw=F, log=F, rank=F, #file type
-                   path_folder){#folder of output
+initfile<-function(data, #dataframe
+                   grpCol,
+                   dataType, #file type
+                   returnCSV=T,
+                   pathFolder){#folder of output
 
-  for(sp in spnames){#create for loop to create .csv file for each species
+  groups<-unique(data[,{{grpCol}}])
 
-    spc<-subset(dat, spcode == sp)#subset large dataset into one for each species
+  #grps<-ifelse(is.factor(groups), as.list(as.character(groups)), groups)
 
-    #The following if statement should write species-specific files, name them
-    #accordingly and produce files without species and individual info
-    if (raw == T){
+  spc<-lapply(groups, function(grp) dplyr::filter(data, {{grpCol}}==grp))
 
-      write.csv(spc[,-c(1:3)],here(path_folder, paste(sp, "RAWData.csv", sep="_")), row.names = F, na="")#write csv for each species
+  if(returnCSV==T){
 
-    }else if(log == T){
-
-      write.csv(spc[,-c(1:3)],here(path_folder, paste(sp, "LOGData.csv", sep="_")), row.names = F, na = "")#write csv for each species
-
-    }else {
-
-      write.csv(spc[,-c(1:3)],here(path_folder, paste(sp,"RANKData.csv", sep = "_")), row.names = F, na = "")#write csv for each species
-    }
+    lapply(1:length(groups),
+           function(grp) write.csv(spc[grp], here(pathFolder, paste(spc[grp],dataType, ".csv", sep = "_")), row.names = F))
   }
+
+  return(spc)
+
 }
+
 

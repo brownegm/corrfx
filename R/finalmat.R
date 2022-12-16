@@ -39,4 +39,6 @@ finalmat<-function(dat1,#raw data
 
   write.csv(FinalCorrMatrix, file=filename)
 
+  return(FinalCorrMatrix)
+
 }

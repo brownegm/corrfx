@@ -1,0 +1,86 @@
+---
+title: "Overview_on_usage"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Overview_on_usage}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(corrfx)
+```
+
+# Usage overview for `corrfx` functions
+
+Here is a quick walk-through of how to use the functions within this package.
+
+The package includes three primary functions for constructing, summarizing and presenting correlation matrices.
+
+| Function | Use                                                                          |
+|----------|------------------------------------------------------------------------------|
+| corr_mat | Construct correlation matrices and output r values and p values.             |
+| corr_adj | Convert p values from corr_mat into stars associated with the significance.  |
+| finalmat | Combine the raw, log and rank correlations into one main matrices for export |
+
+## Example code: 
+
+As an example, we will use the `mtcars` data set.built into R.
+
+```{r}
+#explore top of the data
+head(mtcars)
+
+#Create log and rank versions of mtcars
+
+#log transform
+mtcars_log<-log10(mtcars)
+
+#rank transform
+mtcars_rank<-mtcars%>%#create new tbl with all variables for rank transformation
+  dplyr::mutate_all(.,rank) #rank transform all variables
+
+#create correlation matrix(***Note the here::here(); it allows for precise placement of output files. See ?here((here for examples)
+outputs_raw<-corr_mat(dat=mtcars, raw=T, file1 = here("cor.df.csv"),
+           file2 = here("p.df.csv"))
+outputs_log<-corr_mat(dat=mtcars, raw=T, file1 = here("cor.df.log.csv"),
+           file2 = here("p.df.log.csv"))
+outputs_rank<-corr_mat(dat=mtcars, raw=T, file1 = here("cor.df.rank.csv"),
+           file2 = here("p.df.rank.csv"))
+
+#The corr_mat function returns both a list of the correlation matrix and p values, respectively.This is in addition to the csv outputted to where you desire. 
+cor.df<-outputs[1]#correlation coefficients
+p.df<-outputs[2]#p values 
+
+#log 
+cor.log<-outputs_log[1]#correlation coefficients
+p.log<-outputs_log[2]#p values 
+
+#rank
+cor.rank<-outputs_rank[1]#correlation coefficients
+p.rank<-outputs_rank[2]#p values 
+
+#Now convert the p values into stars for the final matrix
+matfile_raw<-corr_adj(corData = cor.df[[1]], pData = p.df[[1]], filename="matfile.csv")
+matfile_log<-corr_adj(corData = cor.log[[1]], pData = p.log[[1]], filename="matfile.log.csv")
+matfile_rank<-corr_adj(corData = cor.rank[[1]], pData = p.rank[[1]], filename="matfile.rank.csv")
+   
+#The output here is the correlation coefficient pasted with the p values as stars 
+matfile_raw #just the raw to exhibit the output.
+
+#The last function combines the modified data frames together. 
+finalmat<-finalmat(dat1=matfile_raw, dat2=matfile_log, dat3= matfile_rank, filename=here("finalmat.csv"))
+
+#View the combined raw, log and rank correlations, respectively. 
+finalmat
+
+
+
+```

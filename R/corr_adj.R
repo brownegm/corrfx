@@ -33,6 +33,8 @@ corr_adj<-function(corData, pData, filename='what is wrong'){
     }}
 
   write.csv(DataStar, file=here(filename), na = "")
+
+  return(DataStar)
 }
 
 

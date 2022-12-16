@@ -5,6 +5,7 @@
 ##output: the function outputs a csv correlation matrix and a csv containing the p values associated with the correlation coefficients
 
 #' Function used to compute correlation matrix
+#' @details For more information on the use of the set of functions within the package see the help vignette: \code{vignette("Overview_on_usage", package = "corrfx")}
 #'
 #' @param dat a data frame used to test correlations
 #' @param raw true/false binary indicating type of transformation
@@ -53,6 +54,7 @@ corr_mat<-function(dat=dat, raw=F, rank=F, log=F, file1='correlation matrix file
   names(cor.df)<-names(dat); row.names(cor.df)<-names(dat)  # name columns and rows
   names(p.df)<-names(dat); row.names(p.df)<-names(dat)      # name columns and rows
 
+
   #create outputs
   if(raw == T){
 
@@ -70,4 +72,5 @@ corr_mat<-function(dat=dat, raw=F, rank=F, log=F, file1='correlation matrix file
     write.csv(p.df, file=file2)
   }
 
+  return(list(cor.df, p.df))
 }

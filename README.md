@@ -3,8 +3,14 @@
 The package works within R and can be downloaded using:
 
 ```{r}
+#install the package here: 
 devtools::install_github("brownegm/corrfx") 
+
+#load package
 library(corrfx)
+
+#For more details see the help vignette:
+vignette("Overview_on_usage", package = "corrfx")}
 ```
 
 

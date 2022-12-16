@@ -4,33 +4,21 @@
 \alias{initfile}
 \title{init file: function used to create subsets of larger dataset and write files for each species for raw, log, and rank transformations}
 \usage{
-initfile(
-  spnames = NA,
-  dat = NA,
-  spcode = "string",
-  raw = F,
-  log = F,
-  rank = F,
-  path_folder
-)
+initfile(data, grpCol, dataType, returnCSV = T, pathFolder)
 }
 \arguments{
-\item{spnames}{species names}
+\item{data}{a dataframe to be split. This dataframe should have the species code as "spcode"}
 
-\item{dat}{a dataframe to be split. This dataframe should have the species code as "spcode"}
+\item{grpCol}{A string. name of column with species codes in it.}
 
-\item{spcode}{name of column with species codes in it.}
+\item{dataType}{A string. Indicate what data type label for output csv files}
 
-\item{raw}{true/false binary indicating type of transformation}
+\item{returnCSV}{TRUE or FALSE. Do you wish to have subsets output as csv files? Default is TRUE}
 
-\item{log}{true/false binary indicating type of transformation}
-
-\item{rank}{true/false binary indicating type of transformation}
-
-\item{path_folder}{folder for output to be saved}
+\item{pathFolder}{A string passed to here function indicate folder for file placement}
 }
 \value{
-returns a species specific subset of the larger dataframe
+Returns a list of group specific subsets of the larger data frame and .csv files(optional)
 }
 \description{
 init file: function used to create subsets of larger dataset and write files for each species for raw, log, and rank transformations

@@ -1,0 +1,53 @@
+---
+title: "Initfile"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Initfile}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(corrfx)
+```
+
+# Initialize subset data frames for groups(species)(Vignette in progress)
+
+This function was created to provide for correlation analyses for intraspecific studies. So, the primary way the function works is by creating a subset for the given set of species names (spnames) and outputs csv files for each group at the user supplied path_folder. The user can specify if the output is raw(untransformed), log transformed, or rank transformed. All transformations should be done *before* creating subsets.
+
+#### [Function inputs and meanings:]{.underline}
+
+-   **data**: a dataframe to be split
+
+-   **grpCol**: A string. Column to group data by
+
+-   **dataType**: A string. Indicates what data type label for output csv files
+
+-   **path_folder:** A string passed to 'here' function indicate folder for file placement
+
+-   **returnCSV**: TRUE or FALSE. Do you wish to have subsets output as csv files? Default is TRUE.
+
+## Examples:
+
+```{r}
+#for the sake of example, we'll be using PlantGrowth dataset built into R 
+#Data has two columns : weight and group
+head(PlantGrowth)
+
+#convert group from factor to character. Function doesn't like factors. 
+PlantGrowth$group<-as.character(PlantGrowth$group)
+
+#create files for each control group
+initfile(data = PlantGrowth, 
+         grpCol = "group", 
+         dataType = "RAW", returnCSV = F,
+         pathFolder = "~/")
+
+```
