@@ -14,10 +14,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(corrfx)
-```
-
 # Usage overview for `corrfx` functions
 
 Here is a quick walk-through of how to use the functions within this package.
@@ -25,7 +21,7 @@ Here is a quick walk-through of how to use the functions within this package.
 The package includes three primary functions for constructing, summarizing and presenting correlation matrices.
 
 | Function | Use                                                                          |
-|-----------------|-------------------------------------------------------|
+|------------------|------------------------------------------------------|
 | corr_mat | Construct correlation matrices and output r values and p values.             |
 | corr_adj | Convert p values from corr_mat into stars associated with the significance.  |
 | finalmat | Combine the raw, log and rank correlations into one main matrices for export |
@@ -33,6 +29,10 @@ The package includes three primary functions for constructing, summarizing and p
 ## Example code:
 
 As an example, we will use the `mtcars` data set built into R. Note that there are file names included in the function call but these are only for exhibit the function capabilities. The default for outputCSV is false, so, at here, is to not output these files so that the environment is not cluttered.
+
+```{r setup}
+library(corrfx)
+```
 
 ```{r}
 ##Create space

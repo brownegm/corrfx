@@ -36,5 +36,5 @@ returns two csv files one with the r values and one with p values
 Function used to compute correlation matrix
 }
 \details{
-For more information on the use of the set of functions within the package see the help vignette: \code{vignette("Overview_on_usage", package = "corrfx")}
+For more information on the use of the set of functions within the package see the help vignette: \code{vignette("Introduction", package = "corrfx")}
 }
