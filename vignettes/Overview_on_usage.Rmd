@@ -1,8 +1,8 @@
 ---
-title: "Overview_on_usage"
+title: "Introduction"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Overview_on_usage}
+  %\VignetteIndexEntry{Introduction}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -25,7 +25,7 @@ Here is a quick walk-through of how to use the functions within this package.
 The package includes three primary functions for constructing, summarizing and presenting correlation matrices.
 
 | Function | Use                                                                          |
-|--------------|----------------------------------------------------------|
+|-----------------|-------------------------------------------------------|
 | corr_mat | Construct correlation matrices and output r values and p values.             |
 | corr_adj | Convert p values from corr_mat into stars associated with the significance.  |
 | finalmat | Combine the raw, log and rank correlations into one main matrices for export |

@@ -5,7 +5,7 @@
 ##output: the function outputs a csv correlation matrix and a csv containing the p values associated with the correlation coefficients
 
 #' Function used to compute correlation matrix
-#' @details For more information on the use of the set of functions within the package see the help vignette: \code{vignette("Overview_on_usage", package = "corrfx")}
+#' @details For more information on the use of the set of functions within the package see the help vignette: \code{vignette("Introduction", package = "corrfx")}
 #'
 #' @param dat a data frame used to test correlations
 #' @param raw true/false binary indicating type of transformation
