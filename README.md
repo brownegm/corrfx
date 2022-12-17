@@ -10,7 +10,7 @@ devtools::install_github("brownegm/corrfx", build_vignettes = TRUE)
 library(corrfx)
 
 #For more details see the help vignette:
-vignette("Introduction")}
+vignette("Introduction", package='corrfx')}
 ```
 
 
